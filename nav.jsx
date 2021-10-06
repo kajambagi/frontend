@@ -1,8 +1,9 @@
 import React from "react";
 
 import { NavLink } from "react-router-dom";
-import Badge from "@material-ui/core/Badge";
-
+import BookOrder from "./bookorders";
+//import OrderDetail from "./orderdetails";
+ 
 const Nav = () => {
  
   return (
@@ -28,8 +29,13 @@ const Nav = () => {
 
               
               <li className="nav-item">
-                <NavLink className="nav-link" to="/bookorder">
+                <NavLink className="nav-link" to="/bookorders">
                   BookOrder
+                </NavLink>
+                </li>
+                <li className="nav-item">
+                <NavLink className="nav-link" to="/orderdetails">
+                  OrderDetail
                 </NavLink>
                 </li>
                 <li>

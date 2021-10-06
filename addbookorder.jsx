@@ -6,7 +6,6 @@ import Joi from "joi-browser";
 class AddBookOrder extends React.Component {
   state = {
   BookOrder: {
-  orderId: "",
   orderDate: "",
 	orderTotal: "",
 	status: "",
@@ -14,21 +13,20 @@ class AddBookOrder extends React.Component {
 	paymentMethod: "",
 	recipientName: "",
 	recipientPhone: "",
-    },
+  },
     errors: {},
     errMsg: "",
   };
 
   // schema to validate
   schema = {
-  orderId: Joi.number().min(1000).required(),
-	orderDate: Joi.number().min(1000).required(),
-  OrderTotal: Joi.string().min(3).max(30).alphanum().required(),
+	orderDate:Joi.number().min(1000).required(),
+  OrderTotal: Joi.number().min(1000).required(),
 	status: Joi.string().min(3).max(30).alphanum().required(),
   shippingAddress: Joi.string().min(3).max(30).alphanum().required(),
 	paymentMethod: Joi.string().min(3).max(30).alphanum().required(),
 	recipientName: Joi.string().min(3).max(30).alphanum().required(),
-  recipientPhone: Joi.number().min(10).required()
+  recipientPhone: Joi.number().min(1000).required(),
   };
 
   handleChange = (event) => {
@@ -117,62 +115,107 @@ class AddBookOrder extends React.Component {
           <Paper elevation={3} style={{ padding: "15px" }}>
             <TextField
               id="filled-basic"
-              label="Review id "
+              label="OrderDate "
               variant="standard"
               fullWidth
               style={{ marginBottom: "10px" }}
-              name="comment "
-              value={this.state.bookorder_id }
+              name="orderDate "
+              value={this.state.orderDate}
               onChange={this.handleChange}
             />
             {this.state.errors && (
               <p className="text-danger font-monospace text-start">
-                {this.state.errors.order_id }
+                {this.state.errors.orderDate }
               </p>
             )}
             <TextField
               id="filled-basic"
-              label="Comment "
+              label="OrderTotal "
               variant="standard"
               fullWidth
               style={{ marginBottom: "10px" }}
-              name="comment "
-              value={this.state.comment}
+              name="orderTotal "
+              value={this.state.orderTotal }
               onChange={this.handleChange}
             />
             {this.state.errors && (
               <p className="text-danger font-monospace text-start">
-                {this.state.errors.comment }
+                {this.state.errors.orderTotal}
               </p>
             )}
             <TextField
               id="filled-basic"
-              label="Headline "
+              label="Status "
               variant="standard"
               fullWidth
               style={{ marginBottom: "10px" }}
-              name="headline "
-              value={this.state.headline }
+              name="status"
+              value={this.state.status}
               onChange={this.handleChange}
             />
             {this.state.errors && (
               <p className="text-danger font-monospace text-start">
-                {this.state.errors.headline }
+                {this.state.errors.status }
               </p>
             )}
             <TextField
               id="filled-basic"
-              label="Rating "
+              label="Shipping Address "
               variant="standard"
               fullWidth
               style={{ marginBottom: "10px" }}
-              name="rating "
-              value={this.state.rating }
+              name="shippingAddress "
+              value={this.state.shippingAddress }
               onChange={this.handleChange}
             />
             {this.state.errors && (
               <p className="text-danger font-monospace text-start">
-                {this.state.errors.rating }
+                {this.state.errors.shippingAddress }
+              </p>
+            )}
+            <TextField
+              id="filled-basic"
+              label="Payment Method "
+              variant="standard"
+              fullWidth
+              style={{ marginBottom: "10px" }}
+              name="paymentMethod "
+              value={this.state.paymentMethod }
+              onChange={this.handleChange}
+            />
+            {this.state.errors && (
+              <p className="text-danger font-monospace text-start">
+                {this.state.errors.paymentMethod}
+              </p>
+            )}
+            <TextField
+              id="filled-basic"
+              label="Recipient Name "
+              variant="standard"
+              fullWidth
+              style={{ marginBottom: "10px" }}
+              name="recipientName "
+              value={this.state.recipientName }
+              onChange={this.handleChange}
+            />
+            {this.state.errors && (
+              <p className="text-danger font-monospace text-start">
+                {this.state.errors.recipientName }
+              </p>
+            )}
+            <TextField
+              id="filled-basic"
+              label="Recipient Phone "
+              variant="standard"
+              fullWidth
+              style={{ marginBottom: "10px" }}
+              name="recipientPhone "
+              value={this.state.recipientPhone}
+              onChange={this.handleChange}
+            />
+            {this.state.errors && (
+              <p className="text-danger font-monospace text-start">
+                {this.state.errors.recipientPhone }
               </p>
             )}
             <Button
